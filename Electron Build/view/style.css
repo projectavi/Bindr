@@ -1,3 +1,12 @@
+@font-face {
+    font-family:'font-space';
+    src:/*url('resources/other/Font/woff2/SpaceGrotesk[wght].woff2') format ("wofff2"),*/
+        url('resources/other/Font/ttf/static/SpaceGrotesk-Regular.ttf');
+}
+
+/*Defaulword
+ts for the entire page, change these, and you can change almost all the colors*/
+
 :root {
     --bg-p: #2A2A2A;
     /*Background primary variable*/
@@ -13,10 +22,61 @@
     /*Theme Seconary variable*/
     --theme-t: #772222;
     /*Theme Tertiary variable*/
+    
+    font-size: 16px;
+    font-family:'font-space';
 }
 
-.homeselect {
-    width: 1/3fr;
-    height: 95%;
+
+html, body {
+    margin: 0;
+    height: 100%;
+    font-family: "font-space";
+}
+
+.selection-grid {
+    font-size:30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 5px;
+    width: 100%;
+    height: 90%;
+}
+
+
+#notes {
+    width: 100%;
+    height: 100%;
+    background-color: forestgreen;
+}
+
+#quizzes {
+    width: 100%;
+    height: 100%;
+    background-color: burlywood;
+}
+
+#resources {
+    width: 100%;
+    height: 100%;
+    background-color: indianred;
+}
+
+.element {
+    justify-content: center;
+    text-align: center;
+    grid-column: auto;
     filter: grayscale(100%);
+
+}
+
+.element span h1{
+    text-align: left;
+    transform:rotate(90deg) translate(200px, 200px);
+}
+
+.element:hover {
+    filter: grayscale(0%);
+    transition: 600ms;
+    color:var(--text-p);
 }

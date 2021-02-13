@@ -7,26 +7,26 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>Hello World!</title>
+    <link rel='stylesheet' type='text/css' href="style.css">
 </head>
 
 <body>
-    <header>
-
+    <header style="height:10%;">
+        <h2>Welcome to Bindr</h2>
     </header>
-    <div>
-        <div id="notes" class="homeselect">
-
+    <div class='selection-grid'>
+        <div id="notes" class="element">
+            <span><h1>Notes</h1></span>
         </div>
-        <div id="quizes" class="homeselect">
-
+        <div id="quizzes" class="element">
+            <span><h1>Quizzes</h1></span>
         </div>
-        <div id="resources" class="homeselect">
-
+        <div id="resources" class="element">
+            <span><h1>Resources</h1></span>
         </div>
     </div>
 
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>, Chromium <span id="chrome-version"></span>, and Electron <span id="electron-version"></span>.
+    
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
