@@ -1,0 +1,22 @@
+:root {
+    --bg-p: #2A2A2A;
+    /*Background primary variable*/
+    --bg-s: #4F4F4F;
+    /*Background primary variable*/
+    --text-p: #FFFFFF;
+    /*Text primary variable*/
+    --text-s: #7F7F7F;
+    /*Text secondary variable*/
+    --theme-p: #222277;
+    /*Theme primary variable*/
+    --theme-s: #227722;
+    /*Theme Seconary variable*/
+    --theme-t: #772222;
+    /*Theme Tertiary variable*/
+}
+
+.homeselect {
+    width: 1/3fr;
+    height: 95%;
+    filter: grayscale(100%);
+}
