@@ -1,0 +1,43 @@
+@font-face {
+    font-family:'font-space';
+    src:/*url('resources/other/Font/woff2/SpaceGrotesk[wght].woff2') format ("wofff2"),*/
+        url('../../resources/other/Font/ttf/static/SpaceGrotesk-Regular.ttf');
+}
+
+:root {
+    --bg-p: #deb887;
+
+    font-size: 16px;
+    font-family:'font-space';
+} 
+
+body{
+	font-size: 20px;
+	font-family: "font-space";
+	color: #333;
+    background-color: var(--bg-p);
+    text-align: center;
+}
+.question{
+	font-weight: 500;
+}
+.answers {
+  margin-bottom: 20px;
+}
+.answers label{
+  display: block;
+}
+#submit{
+	font-family: sans-serif;
+	font-size: 20px;
+	background-color: #279;
+	color: #fff;
+	border: 0px;
+	border-radius: 15px;
+	padding: 20px;
+	cursor: pointer;
+	margin-bottom: 20px;
+}
+#submit:hover{
+	background-color: #38a;
+}
