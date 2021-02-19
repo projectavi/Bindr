@@ -1,0 +1,23 @@
+i = insert mode
+hjkl = navigation
+shift+i = insert at begining
+a = insert after
+A= insert at end of line                                 
+x = delete a character when in command mode
+r = repalce a character when in command mode
+
+
+
+
+
+ik
+
+
+
+
+
+
+
+
+
+
