@@ -5,12 +5,50 @@
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://cdnjs.cloudflare.com ">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>Hello World!</title>
     <link rel='stylesheet' type='text/css' href="./css/index-style.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+    <!--Analytics-->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <!--Authentication-->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <!--Firestore-->
+    <!--<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-performance.js"></script>
+    <!--Performance Monitoring-->-->
+    <!--<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-messaging.js"></script>
+    <!--Cloud Messaging-->-->
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyASwpwU4gScouDb52SgtITzJGlhVlUaAeM",
+            authDomain: "bindr-b1182.firebaseapp.com",
+            projectId: "bindr-b1182",
+            storageBucket: "bindr-b1182.appspot.com",
+            messagingSenderId: "834172641970",
+            appId: "1:834172641970:web:9ff63deccdc2ac41b7dfab",
+            measurementId: "G-26JDS2433R"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <script src="../../src/model/database/firebase.js"></script>
 </head>
 
 <body>
+    <button id='gbutton' onclick="authentication_google()">
+        Sign in with google
+    </button>
     <header style="height:10%;">
         <h2>Welcome to Bindr</h2>
     </header>
@@ -26,7 +64,7 @@
         </div>
     </div>
 
-    
+
 
     <!-- You can also require other files to run in this process -->
     <script src="./js/renderer.js"></script>
