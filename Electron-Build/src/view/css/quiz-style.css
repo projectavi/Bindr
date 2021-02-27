@@ -6,7 +6,6 @@
 
 :root {
     --bg-p: #deb887;
-
     font-size: 16px;
     font-family:'font-space';
 } 
@@ -28,7 +27,7 @@ body{
 	/* border-bottom: 2px solid black; */ /*Replace line 29 with this if only underline wanted */
 	border: 2px solid black;
  	border-radius: 4px;
-	width: 10%;
+	width: 20%;
 	padding: 12px 20px;
   	margin: 8px 0;
  	box-sizing: border-box;
@@ -67,6 +66,7 @@ body{
 
 textarea {
 	font-weight: 500;
+	font-family: sans-serif;
 	/* border: none;
 	/* border-bottom: 2px solid black; */ /*Replace line 29 with this if only underline wanted */
 	border: 2px solid black;

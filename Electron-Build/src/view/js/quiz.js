@@ -1,4 +1,30 @@
 (function(){
+
+    const fs = require("fs")
+    const path = require('path');
+
+    window.$ = window.jQuery = require('jquery');
+
+    function run_python() {
+      let {PythonShell} = require('python-shell')
+
+      PythonShell.run("./src/model/engine/question_gen.py", null, function(err, results) {
+          if (err) throw err;
+          //console.log("main.py executed.")
+          console.log("results: ", results)
+      })
+    }
+
+    function read_json(json_filepath){
+      const fs = require("fs")
+      return (JSON.parse(fs.readFileSync(json_filepath)))
+    }
+
+    function write_json(data, json_filepath){
+      const fs = require("fs")
+      fs.writeFileSync(json_filepath, JSON.stringify(data))
+    }
+
     function buildQuiz(){
       // variable to store the HTML output
       const output = [];
@@ -36,7 +62,7 @@
             // and for each available answer...
               answers.push(
                 `<label class="longlable" href="#q${questionNumber}">
-                  <textarea rows="4" cols="50" class="long" id="q${questionNumber}" name="question${questionNumber}"></textarea>
+                  <textarea rows="4" cols="50" class="long" id="q${questionNumber}" name="question${questionNumber}" placeholder="Answer here..."></textarea>
                  </label>`
                 
               );
@@ -113,65 +139,56 @@
   
       // show number of correct answers out of total
       resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
-    }
-  
+    }  
     const quizContainer = document.getElementById('quiz');
     const resultsContainer = document.getElementById('results');
     const submitButton = document.getElementById('submit');
-    const myQuestions = [
-      {
-        type: "mcq",
-        question: "Question 1",
-        answers: {
-          a: "Answer 1",
-          b: "Answer 2",
-          c: "Answer 3"
-        },
-        correctAnswer: "c"
-      },
-      {
-        type: "mcq",
-        question: "Question 2",
-        answers: {
-            a: "Answer 1",
-            b: "Answer 2",
-            c: "Answer 3"
-        },
-        correctAnswer: "c"
-      },
-      {
-        type: "mcq",
-        question: "Question 3",
-        answers: {
-            a: "Answer 1",
-            b: "Answer 2",
-            c: "Answer 3"
-        },
-        correctAnswer: "a"
-      },
-      {
-        type: "short",
-        question: "Question 4",
-        correctAnswer: "TestAnswer"
-      },
-      {
-        type: "short",
-        question: "Question 5",
-        correctAnswer: "TestAnswers"
-      },
-      {
-        type: "long",
-        question: "Question 6",
-        correctAnswer: "Test",
-      }
-    ];
 
-    // Kick things off
-    buildQuiz();
+    let myQuestions = []
+
+    function checkExistsWithTimeout(filePath, timeout) {
+      return new Promise(function (resolve, reject) {
+  
+          var timer = setTimeout(function () {
+              watcher.close();
+              reject(new Error('File did not exists and was not created during the timeout.'));
+          }, timeout);
+  
+          fs.access(filePath, fs.constants.R_OK, function (err) {
+              if (!err) {
+                  clearTimeout(timer);
+                  watcher.close();
+                  myQuestions = read_json(filePath)
+                  buildQuiz();
+                  resolve();
+              }
+          });
+  
+          var dir = path.dirname(filePath);
+          var basename = path.basename(filePath);
+          var watcher = fs.watch(dir, function (eventType, filename) {
+              if (eventType === 'rename' && filename === basename) {
+                  clearTimeout(timer);
+                  watcher.close();
+                  myQuestions = read_json(filePath)
+                  buildQuiz();
+                  resolve();
+              }
+          });
+      });
+    }
+
+    fs.unlinkSync("./src/view/js/json/questions.json")
+
+    run_python()
+
+    //const myQuestions = read_json("./src/view/js/json/questions.json")
+    
+    checkExistsWithTimeout("./src/view/js/json/questions.json", 200)
   
     // Event listeners
     submitButton.addEventListener('click', showResults);
 
     // Basic Styling Stuff
-    $('textarea').autoResize();
+    //$('textarea').autoResize(); // not working for some reason
   })();

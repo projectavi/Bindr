@@ -12,10 +12,13 @@ app.on("ready", _ => {
     mainWindow = new BrowserWindow({
         height: 720,
         width: 1280,
+        webPreferences: {
+            nodeIntegration: true
+        }
     })
 
     //console.log("Hello")
-    mainWindow.loadURL('file://' + __dirname + './view/index.html')
+    mainWindow.loadURL('file://' + __dirname + './view/quiz.html')
 
     // var python = require("child_process").spawn("python", ["./main.py"]);
     // python.stdout.on("data", function(data) {console.log(data.toString("utf8"))});
