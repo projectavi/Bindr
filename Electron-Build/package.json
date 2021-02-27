@@ -1,5 +1,5 @@
 {
-  "name": "Electron Build",
+  "name": "Electron-Build",
   "version": "1.0.0",
   "description": "",
   "main": "src/electron-main.js",
