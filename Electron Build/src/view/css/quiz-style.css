@@ -1,0 +1,87 @@
+@font-face {
+    font-family:'font-space';
+    src:/*url('resources/other/Font/woff2/SpaceGrotesk[wght].woff2') format ("wofff2"),*/
+        url('../resources/other/Font/ttf/static/SpaceGrotesk-Regular.ttf');
+}
+
+:root {
+    --bg-p: #deb887;
+
+    font-size: 16px;
+    font-family:'font-space';
+} 
+
+body{
+	font-size: 20px;
+	font-family: "font-space";
+	color: #333;
+    background-color: var(--bg-p);
+    text-align: center;
+}
+.question{
+	font-weight: 500;
+}
+
+.short{
+	font-weight: 500;
+	/* border: none;
+	/* border-bottom: 2px solid black; */ /*Replace line 29 with this if only underline wanted */
+	border: 2px solid black;
+ 	border-radius: 4px;
+	width: 10%;
+	padding: 12px 20px;
+  	margin: 8px 0;
+ 	box-sizing: border-box;
+}
+
+.short:focus {
+	border: 2px solid #555;
+}
+
+.answers {
+  margin-bottom: 20px;
+}
+.answers label{
+  display: block;
+}
+
+#submit{
+	font-family: sans-serif;
+	font-size: 20px;
+	background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+	padding: 20px;
+	cursor: pointer;
+	margin-bottom: 20px;
+	width: 80%;
+	border-radius: 3px;
+}
+#submit:hover{
+	background-color: #38a;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+textarea {
+	font-weight: 500;
+	/* border: none;
+	/* border-bottom: 2px solid black; */ /*Replace line 29 with this if only underline wanted */
+	border: 2px solid black;
+ 	border-radius: 4px;
+	width: 20%;
+	padding: 12px 20px;
+  	margin: 8px 0;
+ 	box-sizing: border-box;
+	resize: none;
+}
+
+textarea:focus {
+	background-color: whitesmoke;
+}
+
+.longlable {
+	display:none;
+}
