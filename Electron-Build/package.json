@@ -4,7 +4,9 @@
   "description": "",
   "main": "src/electron-main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron ./main.js",
+    "rebuild": "./node_modules/.bin/electron-rebuild",
+    "deploy": "node ./config/firebase-deploy.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +15,7 @@
     "electron": "^11.2.3"
   },
   "dependencies": {
+    "electron-firebase": "^1.0.0",
     "jquery": "^3.5.1",
     "python-shell": "^2.0.3"
   }
