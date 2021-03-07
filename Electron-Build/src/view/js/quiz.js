@@ -6,13 +6,18 @@
     window.$ = window.jQuery = require('jquery');
 
     function run_python() {
-      let {PythonShell} = require('python-shell')
+      
+    let {PythonShell} = require('python-shell')
 
-      PythonShell.run("./src/model/engine/question_gen.py", null, function(err, results) {
-          if (err) throw err;
-          //console.log("main.py executed.")
-          console.log("results: ", results)
-      })
+    PythonShell.run("./src/model/engine/question_gen.py", null, function(err, results) {
+        if (err) throw err;
+        //console.log("main.py executed.")
+        console.log("results: ", results)
+    })
+      
+
+     //var spawn = require('child_process').spawn;
+     //var process = spawn('python', ['./src/model/engine/question_gen.py'])
     }
 
     function read_json(json_filepath){
@@ -184,7 +189,7 @@
 
     //const myQuestions = read_json("./src/view/js/json/questions.json")
     
-    checkExistsWithTimeout("./src/view/js/json/questions.json", 200)
+    checkExistsWithTimeout("./src/view/js/json/questions.json", 2000) //The operation of Creating an Array and Saving it to JSON takes 150ms, 1400 for 5 mcqs, 1650 for 5 mcq 5 short
   
     // Event listeners
     submitButton.addEventListener('click', showResults);
