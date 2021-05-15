@@ -1,9 +1,12 @@
 <script>
+	import { auth, googleProvider } from './firebase';
+    import { authState } from 'rxfire/auth';
+
 	export let name;
 
 
 	function login() {
-		auth.signInWithPopip(googleProvider);
+		auth.signInWithPopup(googleProvider);
 	}
 </script>
 
