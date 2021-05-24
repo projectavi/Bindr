@@ -2,6 +2,8 @@
 	import { auth, googleProvider } from './firebase';
     import { authState } from 'rxfire/auth';
 
+	import Content from './content.svelte';
+
 	export let name;
 
 
@@ -14,7 +16,7 @@
 	<h1>Hello {name}!</h1>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 	<button on:click={login}>Login with Google</button>
-
+	<Content/>
 </main>
 
 <style>
