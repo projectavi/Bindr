@@ -17,7 +17,7 @@
     .option-area {
         width: 1fr/3;
     }
-
+    
 </style>
 
 <main>
@@ -27,7 +27,7 @@
         </div>
         <div id="wrapper2">
             <div id="quiz" class="option-area">
-                
+
             </div>
 
             <div id="notes" class="option-area">

@@ -36,7 +36,6 @@
         //components include headings [head], paragraphs [para], tips [tip], hints [hint], questions [quest], videos [vid]
     }
 
-    
 
 </script>
 
