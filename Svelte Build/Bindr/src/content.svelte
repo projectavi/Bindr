@@ -18,7 +18,6 @@
         });
     });
 
-    
 
     function add_component (doc) {
         console.log(doc.data().para)
