@@ -7,7 +7,7 @@
 	let user;
 
 	import { Router, Route, Link } from "svelte-navigator";
-	import Login from "./Login.svelte";
+	import Profile from "./Profile.svelte";
 	import PrivateRoute from "./PrivateRoute.svelte";
 	import { userAcc } from "./store";
 
@@ -40,7 +40,6 @@
 	  
 		  <nav>
 			<Link to="/">Home</Link>
-			<Link to="about">About</Link>
 			<Link to="profile">Profile</Link>
 
 			<div>
@@ -60,8 +59,8 @@
 		</header>
 	  
 		<main>
-		  <Route path="login">
-			<Login />
+		  <Route path="profile">
+			<Profile uid={user.uid}/>
 		  </Route>
 	  
 		  <Route path="/">
@@ -69,10 +68,10 @@
 		  </Route>
 	
 	  
-		  <PrivateRoute path="profile" let:location>
+		  <!-- <PrivateRoute path="profile" let:location>
 			<h3>Welcome {$user.username}</h3>
 			<button on:click={signout}>Logout</button>
-		  </PrivateRoute>
+		  </PrivateRoute> -->
 		</main>
 	  </Router>
 	
