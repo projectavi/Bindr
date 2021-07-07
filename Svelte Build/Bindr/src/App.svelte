@@ -4,19 +4,26 @@
 
 	import Content from './content.svelte';
 	import Homescreen from './homescreen.svelte';
-	export let name;
+	let user;
 
 	import { Router, Route, Link } from "svelte-navigator";
-	import Login from "./Login.svelte";
+	import Profile from "./Profile.svelte";
 	import PrivateRoute from "./PrivateRoute.svelte";
-	import { user } from "./store";
+	import { userAcc } from "./store";
 
-	function handleLogout() {
-		$user = null;
+	const unsubscribe = authState(auth).subscribe(u => user = u); //This line gives an error but when it is deleted the login stops working so don't delete it
+
+	function signout() {
+		// user = null;
+		auth.signOut()
+		console.log(user)
+		$userAcc = user
 	}
 
-	function login() {
+	function signin() {
 		auth.signInWithPopup(googleProvider);
+		console.log(user)
+		$userAcc = user
 	}
 </script>
 
@@ -33,14 +40,27 @@
 	  
 		  <nav>
 			<Link to="/">Home</Link>
-			<Link to="about">About</Link>
-			<Link to="profile">Profile</Link>
+			<Link to="/profile">Profile</Link>
+
+			<div>
+				{#if user}
+					<button on:click={signout}>Logout</button>
+				{:else}
+					<button on:click={signin}>
+						Sign In with Google
+					</button>
+				{/if}
+			</div>
+
+			<p>{user}</p>
+
 		  </nav>
+
 		</header>
 	  
 		<main>
-		  <Route path="login">
-			<Login />
+		  <Route path="/profile">
+			<Profile uid={user.uid}/>
 		  </Route>
 	  
 		  <Route path="/">
@@ -48,10 +68,10 @@
 		  </Route>
 	
 	  
-		  <PrivateRoute path="profile" let:location>
+		  <!-- <PrivateRoute path="profile" let:location>
 			<h3>Welcome {$user.username}</h3>
-			<button on:click={handleLogout}>Logout</button>
-		  </PrivateRoute>
+			<button on:click={signout}>Logout</button>
+		  </PrivateRoute> -->
 		</main>
 	  </Router>
 	

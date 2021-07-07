@@ -1,11 +1,11 @@
 <script>
     import { useNavigate, useLocation } from "svelte-navigator";
-    import { user } from "./store";
+    import { userAcc } from "./store";
   
     const navigate = useNavigate();
     const location = useLocation();
   
-    $: if (!$user) {
+    $: if (!$userAcc) {
       navigate("/login", {
         state: { from: $location.pathname },
         replace: true,
@@ -13,7 +13,7 @@
     }
   </script>
   
-  {#if $user}
+  {#if $userAcc}
     <slot />
   {/if}
   
