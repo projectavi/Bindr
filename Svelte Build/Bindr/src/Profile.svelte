@@ -5,8 +5,11 @@
     import { startWith } from 'rxjs/operators';
     import { createEventDispatcher } from 'svelte';
     import { onMount } from 'svelte';
+    import User from "./User.svelte"
 
     export let uid;
+
+    console.log(uid)
 
     const query = db.collection('profiles').where('uid', '==', uid).orderBy('saved');
 
@@ -38,6 +41,10 @@
             db.collection('profiles').doc(id).delete();
             db.collection('profiles').add({ uid, data, saved: Date.now() });
         }
+    }
+
+    function addNewProfile() {
+        db.collection('profiles').add({ uid, data, saved: Date.now() })
     }
 
 </script>
@@ -102,6 +109,9 @@
                             </div>
                         {/each}
                     </div>
+                    {#if FLAG_newUser}
+                        <button on:click={addNewProfile}> Add Profile </button>
+                    {/if}
                     {#each $profiles as profile}
                         <User {...profile} on:update={updateProfile} on:u_data={fillInfo}/>
                     {/each}

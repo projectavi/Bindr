@@ -40,7 +40,7 @@
 	  
 		  <nav>
 			<Link to="/">Home</Link>
-			<Link to="profile">Profile</Link>
+			<Link to="/profile">Profile</Link>
 
 			<div>
 				{#if user}
@@ -59,7 +59,7 @@
 		</header>
 	  
 		<main>
-		  <Route path="profile">
+		  <Route path="/profile">
 			<Profile uid={user.uid}/>
 		  </Route>
 	  

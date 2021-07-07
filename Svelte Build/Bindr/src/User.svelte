@@ -7,6 +7,8 @@
 
     const dispatch = createEventDispatcher();
 
+    console.log("mounted")
+
     function update() {
         console.log("1", data)
 
@@ -17,11 +19,13 @@
     export let data;
 
     onMount(async () => {
+        console.log("Dispatching")
 		dispatch("u_data", { id, new_data: data });
+        console.log("Dispatched.")
 	});
 </script>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
 
 <div class="row gutters">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
