@@ -110,7 +110,7 @@
                                 <div class="form-group">
                                     <AutoComplete items={subjects} type="name" class="form-control" placeholder="Enter Subject" bind:selectedItem={subject.name}/>
                                     <AutoComplete items={["Higher Level (HL)", "Standard Level (SL)"]} class="form-control" placeholder="Enter Subject Level" bind:selectedItem={subject.level}/>
-                                    <AutoComplete items={["1", "2", "3", "4", "5", "6", "7"]} class="form-control" placeholder="Enter Current Level (1-7)" bind:value={subject.grade}/>
+                                    <AutoComplete items={[1, 2, 3, 4, 5, 6, 7]} class="form-control" placeholder="Enter Current Level (1-7)" bind:selectedItem={subject.grade}/>
                                 </div>
                             </div>
                         {/each}
