@@ -1,3 +1,8 @@
+<svelte:head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
+    </style>
+</svelte:head>
 <script>
     //export username
 
@@ -37,15 +42,17 @@
         src: url('resources/other/Font/woff2/SpaceGrotesk[wght].woff2') format ("wofff2")
             url('./resources/other/Font/ttf/static/SpaceGrotesk-Regular.ttf');
     }
-    */
+   */
+/*  
     @font-face {
         font-family:'font-space';
         font-style: normal;
         font-weight: 400;
-        src: url('./resources/other/Font/ttf/static/SpaceGrotesk-Regular.ttf') format('ttf');
+        src: url('../resources/other/Font/ttf/static/SpaceGrotesk-Regular.ttf') format('ttf');
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        src: url('/public/resources/other/Font/ttf/static/SpaceGrotesk-Regular.ttf') format('ttf');
     }
-
+*/
     /*Defaulword
     ts for the entire page, change these, and you can change almost all the colors*/
 
@@ -66,13 +73,13 @@
         /*Theme Tertiary variable*/
         
         font-size: 16px;
-        font-family:'font-space';
+        font-family:'Space Grotesk';
     }
 
     html, body {
         margin: 0;
         height: 100%;
-        font-family: "font-space";
+        font-family: "Space Grotesk";
     }
 
     .selection-grid {
@@ -150,9 +157,9 @@
 </section>
 -->
 <body class='screen'>
-    <header style="height:10%;">
+    <!-- <header style="height:10%;">
         <h2>Welcome to Bindr</h2>
-    </header>
+    </header> -->
     <div class='selection-grid'>
         <div id="notes" class="element">
             <span><h1>Notes</h1></span>

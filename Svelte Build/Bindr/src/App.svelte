@@ -21,11 +21,11 @@
 </script>
 
 <main>
-	<!--<h1>Hello {name}!</h1>
+	<h1>Hello {name}!</h1>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 	<button on:click={login}>Login with Google</button>
 	<Content/>
-	-->
+	
 
 	<Router>
 		<header>
@@ -51,7 +51,7 @@
 		  <PrivateRoute path="profile" let:location>
 			<h3>Welcome {$user.username}</h3>
 			<button on:click={handleLogout}>Logout</button>
-		  </PrivateRoute>
+			</PrivateRoute>
 		</main>
 	  </Router>
 	
