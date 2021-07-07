@@ -7,6 +7,8 @@
     import { onMount } from 'svelte';
     import User from "./User.svelte"
 
+    import AutoComplete from "simple-svelte-autocomplete";
+
     export let uid;
 
     console.log(uid)
@@ -15,13 +17,15 @@
 
     const profiles = collectionData(query, 'id').pipe(startWith([]));
 
+    var subjects = ["English Literature", "English Literature and Language", "Spanish Ab Initio", "Spanish B", "French Ab Initio", "French B", "Hindi Ab Initio", "Hindi B", "Business Management", "Economics", "Geography", "Global Politics", "History", "Information Technology in a Global Society", "Philosophy", "Psychology", "Social and Cultural Anthropology", "World Religions", "Biology", "Chemistry", "Computer Science", "Design Technology", "Environmental Systems and Societies", "Physics", "Sports, Exercise, and Health Science", "Mathematics Analysis and Approaches", "Mathematics Application and Interpretations", "Dance", "Film", "Music", "Theatre", "Visual Arts"]
+
     let FLAG_newUser = true;
 
     let data = {
         name: "",
         email: "",
         phone: "",
-        subjects: [{name: "", level: 1}, {name: "", level: 1}, {name: "", level: 1}, {name: "", level: 1}, {name: "", level: 1}, {name: "", level: 1}]
+        subjects: [{name: "", level: "", grade: 1}, {name: "", level: "", grade: 1}, {name: "", level: "", grade: 1}, {name: "", level: "", grade: 1}, {name: "", level: "", grade: 1}, {name: "", level: "", grade: 1}]
     }
 
     function updateProfile(event) {
@@ -45,6 +49,7 @@
 
     function addNewProfile() {
         db.collection('profiles').add({ uid, data, saved: Date.now() })
+        alert("Your profile has been added.")
     }
 
 </script>
@@ -103,8 +108,9 @@
                         {#each data.subjects as subject}
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <input type="name" class="form-control" id="Street" placeholder="Enter Subject" bind:value={subject.name}>
-                                    <input type="number" class="form-control" id="Street" placeholder="Enter Current Level (1-7)" bind:value={subject.level} min=1, max=7>
+                                    <AutoComplete items={subjects} type="name" class="form-control" placeholder="Enter Subject" bind:selectedItem={subject.name}/>
+                                    <AutoComplete items={["Higher Level (HL)", "Standard Level (SL)"]} class="form-control" placeholder="Enter Subject Level" bind:selectedItem={subject.level}/>
+                                    <AutoComplete items={["1", "2", "3", "4", "5", "6", "7"]} class="form-control" placeholder="Enter Current Level (1-7)" bind:value={subject.grade}/>
                                 </div>
                             </div>
                         {/each}
