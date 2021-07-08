@@ -9,7 +9,7 @@ from tensorflow.keras.layers import Dense, Input, GlobalMaxPooling1D
 from tensorflow.keras.layers import LSTM, Embedding
 from tensorflow.keras.models import Model
 
-df = pd.read_csv("qgenerated.csv")
+df = pd.read_csv("marked.csv")
 
 questions = np.array(df["Questions"].tolist())
 classifications = np.array(df["Classifications"].tolist())
@@ -20,7 +20,7 @@ print(type(questions))
 
 print(type(classifications))
 
-q_train, q_test, c_train, c_test = train_test_split(questions, classifications, test_size=0.33)
+q_train, q_test, c_train, c_test = train_test_split(questions, classifications, test_size=0.15)
 
 # Convert sentences to sequences
 MAX_VOCAB_SIZE = 20000
@@ -40,16 +40,18 @@ print('Shape of data train tensor:', data_train.shape)
 # get sequence length
 T = data_train.shape[1]
 
+print(T)
+
 data_test = pad_sequences(sequences_test, maxlen=T)
 print('Shape of data test tensor:', data_test.shape)
 
 # Create the model
 
 # We get to choose embedding dimensionality
-D = 20
+D = 25
 
 # Hidden state dimensionality
-M = 15
+M = 20
 
 # Note: we actually want to the size of the embedding to (V + 1) x D,
 # because the first index starts from 1 and not 0.
@@ -71,12 +73,14 @@ model.compile(
   metrics=['accuracy']
 )
 
+# Change the learning rate to 0.01
+model.optimizer.lr.assign(0.0075)
 
 print('Training model...')
 r = model.fit(
   data_train,
   c_train,
-  epochs=10,
+  epochs=100,
   validation_data=(data_test, c_test)
 )
 
@@ -91,3 +95,6 @@ plt.plot(r.history['accuracy'], label='acc')
 plt.plot(r.history['val_accuracy'], label='val_acc')
 plt.legend()
 plt.show()
+
+# Save model to file
+model.save("model.h5")
