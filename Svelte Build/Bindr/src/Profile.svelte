@@ -178,5 +178,15 @@
         font-size: .825rem;
         background: #1A233A;
         color: #bcd0f7;
+        padding: 0.5rem 0.75rem;
+    }
+    .form-group {
+        /* make the contents of this div side by side */
+        display: flex;
+        flex-direction: column;
+        /* align the contents to the centre */
+        align-items: center;
+        /* set the width of the div to 100% */
+        width: 100%;
     }
 </style>
