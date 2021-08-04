@@ -20,7 +20,7 @@ print(type(questions))
 
 print(type(classifications))
 
-q_train, q_test, c_train, c_test = train_test_split(questions, classifications, test_size=0.15)
+q_train, q_test, c_train, c_test = train_test_split(questions, classifications, test_size=0.3)
 
 # Convert sentences to sequences
 MAX_VOCAB_SIZE = 20000
@@ -42,16 +42,19 @@ T = data_train.shape[1]
 
 print(T)
 
+to_save = np.array([T])
+np.save("maxlen.npy", to_save)
+
 data_test = pad_sequences(sequences_test, maxlen=T)
 print('Shape of data test tensor:', data_test.shape)
 
 # Create the model
 
 # We get to choose embedding dimensionality
-D = 25
+D = 40
 
 # Hidden state dimensionality
-M = 20
+M = 25
 
 # Note: we actually want to the size of the embedding to (V + 1) x D,
 # because the first index starts from 1 and not 0.
@@ -74,7 +77,7 @@ model.compile(
 )
 
 # Change the learning rate to 0.01
-model.optimizer.lr.assign(0.0075)
+model.optimizer.lr.assign(0.015)
 
 print('Training model...')
 r = model.fit(

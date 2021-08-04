@@ -1,0 +1,10 @@
+{
+	"networks" : {"q-words": ["Identify", "Describe", "Explain", "Define", "What is/are", "Outline", "Suggest"],
+            "in-betweens": ["the functions of","the requirements of","the use of","what","the functionality of","the threats to","the security concerns of","the features of","the advantages of","the benefits of","the disadvantages of","the term(s)","the technology required for","the sources of risk to","the importance of", "the strengths of using", "the weaknesses of using"],
+            "sub-topics": ["VPNs","extranets","wired networks","wireless networks","LANs","WLANs","PANs","SANs","WPA","WEP","WPA-2","servers","networks","routers","network topologies"],
+            "two-part-q-words": ["Distinguish between","Compare and Contrast","What are the Similarities and Differences between","List the advantages of using"]},
+    "oops" : {"q-words": ["Identify", "Describe", "Explain", "Define", "What is/are", "Outline", "Suggest"],
+            "in-betweens": ["the characteristics of", "the functions of","the requirements of","the use of","what","the features of","the advantages of","the benefits of","the disadvantages of","the term(s)","the importance of", "the strengths of using", "the weaknesses of using", "the need for"],
+            "sub-topics": ["objects","classes","class decomposition","primitive data-types","non-primitive data types","parameters","arguments","object libraries","object-oriented programming","modular programming","dependencies","encapsulation","inheritance","polymorphism", "methods/functions", "accessor functions", "mutator functions", "constructor functions", "identifiers", "instance variables", "local variables", "private variables/functions", "public variables/functions", "protected variables/functions", "the static keyword", "the dynamic keyword", "abstraction", "overloading", "overriding", "the super keyword", "UML (Unified Modelling Language)"],
+            "two-part-q-words": ["Distinguish between","Compare and Contrast","What are the Similarities and Differences between","List the advantages of using"]}
+}            

@@ -31,7 +31,9 @@ V = len(word2idx)
 
 input = pad_sequences(input)
 
-T=17
+maxlen = list(np.load("maxlen.npy"))
+
+T=maxlen[0]
 
 input = pad_sequences(input, maxlen=T)
 

@@ -154,4 +154,160 @@ What are the Similarities and Differences between the sources of risk to a PAN a
 Distinguish between the benefits of a wireless network and the network topologies,0
 Distinguish between the requirements of a PAN and WEP,0
 Distinguish between the importance of a wired network and a wireless network,0
-,0
+Suggest the technology required for routers,0
+State the benefits of wireless networks,1
+Outline the use of SANs,1
+Explain the functionality of servers,1
+State what routers are,1
+Identify the threats to extranets,1
+Define the functionality of extranets,1
+State the technology required for VPNs,1
+What is/are the threats to servers,1
+State the advantages of VPNs,1
+Suggest the advantages of PANs,1
+What is/are the disadvantages of wired networks,1
+Explain the functions of WLANs,1
+Suggest the benefits of WPA-2,1
+What is/are the sources of risk to servers,1
+Outline the use of WLANs,1
+Identify the functions of wireless networks,0
+Suggest the requirements of VPNs,0
+Describe the strengths of wired networks,1
+Define the strengths of wireless networks,1
+Outline the functionality of networks,0
+Outline the technology required for PANs,1
+Identify the advantages of PANs,1
+Outline the weaknesses of wired networks,1
+State the functionality of extranets,1
+Describe the technology required for network topologies,0
+Explain the strengths of SANs,1
+Identify the benefits of SANs,1
+Outline the disadvantages of SANs,1
+Identify the sources of risk to network topologies,0
+Explain what wireless networks are,1
+State the requirements of WPA,0
+Identify the strengths of WPA,0
+Suggest the strengths of network topologies,0
+Identify the threats to LANs,1
+Explain the functionality of routers,0
+Define the weaknesses of servers,0
+Outline the weaknesses of PANs,1
+State the importance of PANs,0
+Explain the term(s) wireless networks,1
+Explain the features of WPA,0
+Describe the strengths of extranets,1
+Outline the strengths of VPNs,1
+Suggest what LANs are,0
+State the features of wired networks,1
+State the security concerns of wireless networks,1
+Explain the requirements of servers,0
+Outline the functionality of LANs,1
+Identify the features of servers,0
+Compare and Contrast the functions of wired networks and WLANs,1
+Distinguish between the benefits of servers and networks,0
+List the advantages of using WEP and servers,1
+What are the Similarities and Differences between the weaknesses of WEP and WPA-2,0
+What are the Similarities and Differences between the advantages of WPA and wired networks,0
+Distinguish between the technology required for SANs and PANs,0
+List the advantages of using WPA-2 and PANs,1
+Compare and Contrast the requirements of WPA and extranets,0
+Distinguish between the use of PANs and routers,0
+What are the Similarities and Differences between the advantages of WLANs and LANs,1
+List the advantages of using extranets and wireless networks,0
+What are the Similarities and Differences between what routers and PANs,0
+Compare and Contrast the security concerns of networks and WPA-2,0
+Compare and Contrast the functions of WLANs and servers,0
+Compare and Contrast the weaknesses of network topologies and networks,0
+Compare and Contrast the sources of risk to WEP and WPA,0
+What are the Similarities and Differences between the strengths of network topologies and WLANs,0
+List the advantages of using WPA-2 and extranets,1
+Distinguish between the advantages of networks and WPA,0
+What are the Similarities and Differences between what WPA and routers,0
+What are the Similarities and Differences between the technology required for networks and PANs,0
+Distinguish between the term(s) network topologies and wired networks,1
+Distinguish between the term(s) networks and WPA,1
+What are the Similarities and Differences between the requirements of servers and WEP,0
+List the advantages of using LANs and WLANs,1
+Distinguish between the weaknesses of extranets and WEP,0
+Distinguish between the security concerns of WPA and VPNs,0
+What are the Similarities and Differences between the sources of risk to wireless networks and networks,0
+Compare and Contrast extranets and VPNs,1
+List the advantages of using WPA and networks,1
+State the disadvantages of private variables/functions,1
+Explain the functions of UML (Unified Modelling Language),1
+Outline the requirements of classes,0
+Outline the characteristics of the static keyword,1
+Outline what object-oriented programming is,1
+What is/are the weaknesses of static variables/functions,1
+What is/are the need for polymorphism,1
+Explain the characteristics of private variables/functions,1
+What is/are the features of protected variables/functions,1
+What is/are the requirements of local variables,0
+Explain the strengths of using classes,1
+Identify the functions of mutator functions,1
+Explain what local variables are,1
+Outline the strengths of modular programming,1
+Define the importance of polymorphism,1
+What is/are the term(s) overloading,1
+Identify the benefits of private variables/functions,1
+State the weaknesses of methods/functions,0
+State the features of constructor functions,1
+Suggest the strengths of polymorphism,0
+Outline the requirements of static variables/functions,0
+Identify the importance of local variables,1
+What is/are the characteristics of inheritance,1
+What is/are the term(s) public variables/functions,0
+Define the functions of instance variables,1
+State the weaknesses of polymorphism,1
+Identify the features of UML (Unified Modelling Language),1
+Describe the term(s) classes,1
+Explain the use of WPA-2,1
+Identify the characteristics of class decomposition,1
+Describe the use of objects,1
+State the importance of classes,1
+Suggest the benefits of class decomposition,0
+State the strengths of primitive data-types,0
+Describe the features of object libraries,1
+Explain the functions of class decomposition,0
+Define the need for local variables,0
+Describe the functions of object-oriented programming,1
+Explain the benefits of methods/functions,1
+Suggest the term(s) abstraction,0
+What is/are the characteristics of classes,1
+Describe the benefits of WPA-2,1
+Define the functions of the static keyword,0
+Outline the functions of overloading,0
+Explain the features of overriding,1
+Define the term(s) methods/functions,1
+Identify the advantages of the super keyword,1
+Define the use of private variables/functions,1
+Compare and Contrast the characteristics of modular programming and polymorphism,0
+What are the Similarities and Differences between the importance of object libraries and protected variables/functions,0
+List the advantages of using non-primitive data types and polymorphism,0
+Distinguish between the importance of methods/functions and mutator functions,0
+Distinguish between the weaknesses of the static keyword and constructor functions,0
+What are the Similarities and Differences between the importance of UML (Unified Modelling Language) and private keyword variables/functions,0
+List the advantages of using non-primitive data types and object-oriented programming,1
+Distinguish between the weaknesses of parameters and primitive data-types,0
+Compare and Contrast the functions of object-oriented programming and instance variables,0
+Compare and Contrast the requirements of mutator functions and class decomposition,0
+Compare and Contrast the strengths of private variables/functions and parameters,0
+What are the Similarities and Differences between the advantages of UML (Unified Modelling Language) and abstraction,0
+Compare and Contrast the advantages of methods/functions and protected variables/functions,0
+Compare and Contrast the requirements of methods/functions and object libraries,0
+Distinguish between the use of objects and mutator functions,0
+Distinguish between the benefits of classes and accessor functions,0
+Compare and Contrast the benefits of classes and UML (Unified Modelling Language),0
+List the advantages of using overriding and the static keyword,0
+List the advantages of using overriding and mutator functions,1
+Distinguish between the disadvantages of polymorphism and UML (Unified Modelling Language),0
+Compare and Contrast the strengths of objects and overloading,0
+List the advantages of using object-oriented programming and accessor functions,1
+Distinguish between the benefits of primitive data-types and private variables/functions,0
+What are the Similarities and Differences between the functions of accessor functions and modular programming,0
+Compare and Contrast the requirements of primitive data-types and constructor functions,0
+Distinguish between the features of WPA-2 and overloading,0
+Compare and Contrast the need for classes and the static keyword,0
+Distinguish between the features of the private keyword and the super keyword,0
+Compare and Contrast the features of polymorphism and mutator functions,0
+List the advantages of using classes and overloading,1

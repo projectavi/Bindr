@@ -1,65 +1,77 @@
 import random
 import pandas as pd
+from jsonIO import pyjson
 
-questions = []
+generated_questions = []
 
-networks = {"q-words": ["Identify", "Describe", "Explain", "Define", "What is/are", "State", "Outline", "Suggest"],
-            "in-betweens": ["the functions of","the requirements of","the use of","what","the functionality of","the threats to","the security concerns of","the features of","the advantages of","the benefits of","the disadvantages of","the term(s)","the technology required for","the sources of risk to","the importance of", "the strengths of", "the weaknesses of"],
-            "sub-topics": ["a VPN","an extranet","a wired network","a wireless network","a LAN","a WLAN","a PAN","a SAN","WPA","WEP","WPA-2","a server","a network","a router","the network topologies"],
-            "two-part-q-words": ["Distinguish between","Compare and Contrast","What are the Similarities and Differences between","List the advantages of using"]};
+data = pyjson.read_from("./terms.json")
 
-for i in range (0, 50):
-    
-    qword = networks["q-words"][random.randrange(0, len(networks["q-words"]))]
+networks = data["networks"]
+oops = data["oops"]
 
-    between = networks["in-betweens"][random.randrange(0, len(networks["in-betweens"]))]
+def generate(arr):
+    questions = []
 
-    subtopic = networks["sub-topics"][random.randrange(0, len(networks["sub-topics"]))]
+    for i in range (0, 50):
+        
+        qword = arr["q-words"][random.randrange(0, len(arr["q-words"]))]
 
-    while between == "what" and qword == "What is/are":
-        qword = networks["q-words"][random.randrange(0, len(networks["q-words"]))]
+        between = arr["in-betweens"][random.randrange(0, len(arr["in-betweens"]))]
 
-        between = networks["in-betweens"][random.randrange(0, len(networks["in-betweens"]))]
+        subtopic = arr["sub-topics"][random.randrange(0, len(arr["sub-topics"]))]
 
-    if between == "what":
-        if subtopic.find("a ") != -1 or subtopic.find("an ") != -1:
-            subtopic += " is"
+        while between == "what" and qword == "What is/are":
+            qword = arr["q-words"][random.randrange(0, len(arr["q-words"]))]
+
+            between = arr["in-betweens"][random.randrange(0, len(arr["in-betweens"]))]
+
+        if between == "what":
+            if subtopic[-1] != "s":
+                subtopic += " is"
+            else:
+                subtopic += " are"
+
+        questions.append(qword + " " + between + " " + subtopic)
+
+        if len(questions) != len(list(set(questions))):
+            questions = list(set(questions))
+            i = i - 1
+
+    for i in range (0, 30):
+        q2word = arr["two-part-q-words"][random.randrange(0, len(arr["two-part-q-words"]))]
+
+        between2 = "what"
+
+        while (between2 == "what"):
+            between2 = arr["in-betweens"][random.randrange(0, len(arr["in-betweens"]))]
+
+        subtopic21 = arr["sub-topics"][random.randrange(0, len(arr["sub-topics"]))]
+
+        subtopic22 = arr["sub-topics"][random.randrange(0, len(arr["sub-topics"]))]
+
+        while subtopic21 == subtopic22:
+            subtopic22 = arr["sub-topics"][random.randrange(0, len(arr["sub-topics"]))]
+
+        if q2word == "List the advantages of using":
+            questions.append(q2word + " " + subtopic21 + " and " + subtopic22)
         else:
-            subtopic += " are"
+            questions.append(q2word + " " + between2 + " " + subtopic21 + " and " + subtopic22)
 
-    questions.append(qword + " " + between + " " + subtopic)
+        if len(questions) != len(list(set(questions))):
+            questions = list(set(questions))
+            i = i - 1
+    
+    return questions
 
-    if len(questions) != len(list(set(questions))):
-        questions = list(set(questions))
-        i = i - 1
+generated_questions = generate(networks) + generate(oops)
+qgenoutput = pd.DataFrame(generated_questions)
 
-for i in range (0, 30):
-    q2word = networks["two-part-q-words"][random.randrange(0, len(networks["two-part-q-words"]))]
+# print(qgenoutput)
 
-    between2 = networks["in-betweens"][random.randrange(0, len(networks["in-betweens"]))]
+    #For xlsx
+    # writer = pd.ExcelWriter("qgenerated.xlsx", engine = 'xlsxwriter')
+    # qgenoutput.to_excel(writer, sheet_name = "Sheet1", index = False)
+    # writer.save();
 
-    subtopic21 = networks["sub-topics"][random.randrange(0, len(networks["sub-topics"]))]
-
-    subtopic22 = networks["sub-topics"][random.randrange(0, len(networks["sub-topics"]))]
-
-    while subtopic21 == subtopic22:
-        subtopic22 = networks["sub-topics"][random.randrange(0, len(networks["sub-topics"]))]
-
-    if q2word == "List the advantages of using":
-        questions.append(q2word + " " + subtopic21 + " and " + subtopic22)
-    else:
-        questions.append(q2word + " " + between2 + " " + subtopic21 + " and " + subtopic22)
-
-    if len(questions) != len(list(set(questions))):
-        questions = list(set(questions))
-        i = i - 1
-
-qgenoutput = pd.DataFrame(questions)
-
-#For xlsx
-# writer = pd.ExcelWriter("qgenerated.xlsx", engine = 'xlsxwriter')
-# qgenoutput.to_excel(writer, sheet_name = "Sheet1", index = False)
-# writer.save();
-
-#For csv
+    #For csv
 qgenoutput.to_csv("qgenerated.csv", index = False)
