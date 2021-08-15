@@ -16,4 +16,4 @@
 
 <h2>Subject</h2>
 <AutoComplete items={subjects} class="dropdown" placeholder="Enter Subject" bind:selectedItem={subject} style="width: 40%;"/>
-<button on:click={generateQuestions}>Generate</button>
+<button on:click={generateQuestions}>Generate Quiz</button>
