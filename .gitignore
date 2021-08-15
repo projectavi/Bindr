@@ -130,6 +130,10 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Node Modules
+./Svelte-Build/Bindr/node_modules/
+
+
 Electron Build/model/api_keys.py
 
 Electron Build/controller/api_keys.js

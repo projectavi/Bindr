@@ -1,6 +1,8 @@
 <script>
     //export username
 
+    import { Router, Route, Link } from "svelte-navigator";
+
     let username = "Test"
 </script>
 
@@ -69,7 +71,7 @@
         font-family:'font-space';
     }
 
-    html, body {
+    body {
         margin: 0;
         height: 100%;
         font-family: "font-space";
@@ -107,7 +109,6 @@
         text-align: center;
         grid-column: auto;
         filter: grayscale(100%);
-
     }
 
     .element span h1{
@@ -154,14 +155,20 @@
         <h2>Welcome to Bindr</h2>
     </header>
     <div class='selection-grid'>
-        <div id="notes" class="element">
-            <span><h1>Notes</h1></span>
-        </div>
-        <div id="quizzes" class="element">
-            <span><h1>Quizzes</h1></span>
-        </div>
+        <Link to="/notes">
+            <div id="notes" class="element">
+                <span><h1>Notes</h1></span>
+            </div>
+        </Link>
+        <Link to="/quiz">
+            <div id="quizzes" class="element">
+                <span><h1>Quizzes</h1></span>
+            </div>
+        </Link>
+        <Link to="/resources">
         <div id="resources" class="element">
             <span><h1>Resources</h1></span>
         </div>
+        </Link>
     </div>
 </body>

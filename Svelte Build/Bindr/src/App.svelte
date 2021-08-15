@@ -4,9 +4,11 @@
 
 	import Content from './content.svelte';
 	import Homescreen from './homescreen.svelte';
+	import Quiz from './Quiz.svelte'
 	let user;
 
 	import { Router, Route, Link } from "svelte-navigator";
+
 	import Profile from "./Profile.svelte";
 	import PrivateRoute from "./PrivateRoute.svelte";
 	import { userAcc } from "./store";
@@ -36,11 +38,12 @@
 
 	<Router>
 		<header>
-		  <h1>History</h1>
+		  <h1>Bindr</h1>
 	  
 		  <nav>
 			<Link to="/">Home</Link>
 			<Link to="/profile">Profile</Link>
+			<Link to="/quiz">Quiz</Link>
 
 			<div>
 				{#if user}
@@ -51,9 +54,6 @@
 					</button>
 				{/if}
 			</div>
-
-			<p>{user}</p>
-
 		  </nav>
 
 		</header>
@@ -66,6 +66,11 @@
 		  <Route path="/">
 			<Homescreen/>	
 		  </Route>
+
+		  <Route path="/quiz">
+			<Quiz/>
+		  </Route>
+		  
 	
 	  
 		  <!-- <PrivateRoute path="profile" let:location>
